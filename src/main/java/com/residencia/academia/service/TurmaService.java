@@ -46,9 +46,10 @@ public class TurmaService {
 		return turmaRepository.save(turma);
 	}
 
-	public Turma saveTurmaDTO(TurmaDTO turmaDTO) {
+	public TurmaDTO saveTurmaDTO(TurmaDTO turmaDTO) {
 		Turma turma = converterDtoParaEntidade(turmaDTO);
-		return turmaRepository.save(turma);
+		Turma novaTurma = turmaRepository.save(turma);
+		return converterEntidadeParaDto(novaTurma);
 	}
 
 	public Turma updateTurma(Turma turma) {
